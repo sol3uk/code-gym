@@ -9,14 +9,14 @@ public class MakingChangeTests
     public class MakingChange
     {
         [Test]
-        public void Given3CentsThenTheCorrectPermutationsAreReturned()
+        public void Given6CentsThenTheCorrectPermutationsAreReturned()
         {
-            var result = MakingChangeUsings.GetChange(3);
+            var result = MakingChangeUsings.GetChange(6);
 
             var expectedOutput = new List<string>()
             {
-                "2 1",
-                "1 1 1"
+                "1 1 1 1 1 1",
+                "5 1",
             };
             
             Assert.That(result, Is.EqualTo(expectedOutput));

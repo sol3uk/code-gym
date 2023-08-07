@@ -6,10 +6,10 @@ Given an amount of change to return (from 1 - 100 cents) write code that calcula
 
 ## Example
 
-For example if the amount of change is 3 cents then the following combinations would be valid
+For example if the amount of change is 6 cents then the following combinations would be valid
 
--  2 1
--  1 1 1
+-  5 1
+-  1 1 1 1 1 1
 
 Note that 
 
