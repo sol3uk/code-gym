@@ -1,6 +1,6 @@
 namespace TestProject1;
 
-public class Usings
+public class MumblingUsings
 {
     public static string Mumbling(string input)
     {

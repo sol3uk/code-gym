@@ -11,20 +11,20 @@ public class Tests
         [Test]
         public void GivenAListOfPeopleWhenFilteredThenAllAgesShouldBeGreaterOrEqualTo18()
         {
-            var employees = new List<Usings.Person>
+            var employees = new List<MumblingUsings.Person>
             {
                 new("Max", 17),
                 new("Sepp", 18),
                 new("Nina", 15),
                 new("Mike", 51)
             };
-            var expectedEmployees = new List<Usings.Person>
+            var expectedEmployees = new List<MumblingUsings.Person>
             {
                 new("Sepp", 18),
                 new("Mike", 51)
             };
 
-            var result = Usings.FilterAge(employees);
+            var result = MumblingUsings.FilterAge(employees);
 
             Assert.That(result.All(person => person.age >= 18));
             Assert.That(expectedEmployees.Count, Is.EqualTo(result.Count));
@@ -33,20 +33,20 @@ public class Tests
         [Test]
         public void GivenAListOfPeopleWhenFilteredThenAllNamesShouldBeInDescendingOrder()
         {
-            var employees = new List<Usings.Person>
+            var employees = new List<MumblingUsings.Person>
             {
                 new("Max", 17),
                 new("Sepp", 18),
                 new("Nina", 15),
                 new("Mike", 51)
             };
-            var expectedEmployees = new List<Usings.Person>
+            var expectedEmployees = new List<MumblingUsings.Person>
             {
                 new("SEPP", 18),
                 new("MIKE", 51),
             };
 
-            var result = Usings.FilterAge(employees);
+            var result = MumblingUsings.FilterAge(employees);
 
             Assert.That(expectedEmployees, Is.EqualTo(result));
         }
@@ -54,20 +54,20 @@ public class Tests
         [Test]
         public void GivenAListOfPeopleWhenFilteredThenAllNamesShouldBeInCaps()
         {
-            var employees = new List<Usings.Person>
+            var employees = new List<MumblingUsings.Person>
             {
                 new("Max", 17),
                 new("Sepp", 18),
                 new("Nina", 15),
                 new("Mike", 51)
             };
-            var expectedEmployees = new List<Usings.Person>
+            var expectedEmployees = new List<MumblingUsings.Person>
             {
                 new("MIKE", 51),
                 new("SEPP", 18),
             };
 
-            var result = Usings.FilterAge(employees);
+            var result = MumblingUsings.FilterAge(employees);
 
             Assert.That(expectedEmployees, Is.EquivalentTo(result));
         }
@@ -83,7 +83,7 @@ public class Tests
         [TestCase("3", "")]
         public void GivenAnInputWhenMumblingIsCalledThenItReturnsExpectedOutput(string testInput, string expectedOutput)
         {
-            var result = Usings.Mumbling(testInput);
+            var result = MumblingUsings.Mumbling(testInput);
 
             Assert.That(result, Is.EqualTo(expectedOutput));
         }
@@ -93,7 +93,7 @@ public class Tests
         {
             var testInput = "abcd";
 
-            var result = Usings.Mumbling(testInput);
+            var result = MumblingUsings.Mumbling(testInput);
 
             Assert.That(result.Contains("-"), Is.True);
         }
@@ -103,7 +103,7 @@ public class Tests
         {
             var testInput = "abcd";
 
-            var result = Usings.Mumbling(testInput);
+            var result = MumblingUsings.Mumbling(testInput);
 
             Assert.That(result.Contains("A"), Is.True);
             Assert.That(result.Contains("B"), Is.True);
@@ -116,7 +116,7 @@ public class Tests
         {
             var testInput = "abcd";
 
-            var result = Usings.Mumbling(testInput);
+            var result = MumblingUsings.Mumbling(testInput);
 
             Assert.That(result, Is.EqualTo("A-Bb-Ccc-Dddd"));
         }
