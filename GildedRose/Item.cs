@@ -9,6 +9,11 @@
         public override string ToString()
         {
             return this.Name + ", " + this.SellIn + ", " + this.Quality;
-        }  
+        }
+
+        internal bool IsQualityLessThan50(Item item)
+        {
+            return item.Quality < 50;
+        }
     }
 }
