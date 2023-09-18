@@ -15,5 +15,20 @@
         {
             return item.Quality < 50;
         }
+        
+        internal bool IsSulfuras()
+        {
+            return this.Name == "Sulfuras, Hand of Ragnaros";
+        }
+        
+        internal bool IsBackstagePass()
+        {
+            return this.Name == "Backstage passes to a TAFKAL80ETC concert";
+        }
+        
+        internal bool IsAgedBrie()
+        {
+            return this.Name == "Aged Brie";
+        }
     }
 }

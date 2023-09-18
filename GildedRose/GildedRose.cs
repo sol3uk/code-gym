@@ -15,11 +15,12 @@ namespace csharp
             for (var i = 0; i < Items.Count; i++)
             {
                 var item = Items[i];
-                if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                
+                if (!item.IsAgedBrie() && !item.IsBackstagePass())
                 {
                     if (item.Quality > 0)
                     {
-                        if (item.Name != "Sulfuras, Hand of Ragnaros")
+                        if (!item.IsSulfuras())
                         {
                             item.Quality--;
                         }
@@ -31,7 +32,7 @@ namespace csharp
                     {
                         item.Quality++;
 
-                        if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+                        if (item.IsBackstagePass())
                         {
                             if (item.SellIn < 11)
                             {
@@ -52,20 +53,20 @@ namespace csharp
                     }
                 }
 
-                if (item.Name != "Sulfuras, Hand of Ragnaros")
+                if (!item.IsSulfuras())
                 {
                     item.SellIn = item.SellIn - 1;
                 }
 
                 if (item.SellIn < 0)
                 {
-                    if (item.Name != "Aged Brie")
+                    if (!item.IsAgedBrie())
                     {
-                        if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
+                        if (!item.IsBackstagePass())
                         {
                             if (item.Quality > 0)
                             {
-                                if (item.Name != "Sulfuras, Hand of Ragnaros")
+                                if (!item.IsSulfuras())
                                 {
                                     item.Quality--;
                                 }
