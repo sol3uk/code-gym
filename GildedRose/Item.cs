@@ -8,27 +8,39 @@
 
         public override string ToString()
         {
-            return this.Name + ", " + this.SellIn + ", " + this.Quality;
+            return Name + ", " + SellIn + ", " + Quality;
         }
 
         internal bool IsQualityLessThan50(Item item)
         {
             return item.Quality < 50;
         }
-        
+
         internal bool IsSulfuras()
         {
-            return this.Name == "Sulfuras, Hand of Ragnaros";
+            return Name == "Sulfuras, Hand of Ragnaros";
         }
-        
+
         internal bool IsBackstagePass()
         {
-            return this.Name == "Backstage passes to a TAFKAL80ETC concert";
+            return Name == "Backstage passes to a TAFKAL80ETC concert";
         }
-        
+
         internal bool IsAgedBrie()
         {
-            return this.Name == "Aged Brie";
+            return Name == "Aged Brie";
+        }
+
+        internal void DecreaseNormalItemQuality()
+        {
+                if (Quality > 0)
+                {
+                    if (!IsSulfuras())
+                    {
+                        Quality--;
+                    }
+                }
+                
         }
     }
 }

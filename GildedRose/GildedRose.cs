@@ -16,17 +16,8 @@ namespace csharp
             {
                 var item = Items[i];
                 
-                if (!item.IsAgedBrie() && !item.IsBackstagePass())
-                {
-                    if (item.Quality > 0)
-                    {
-                        if (!item.IsSulfuras())
-                        {
-                            item.Quality--;
-                        }
-                    }
-                }
-                else
+                    
+                if (item.IsAgedBrie() || item.IsBackstagePass())
                 {
                     if (item.IsQualityLessThan50(item))
                     {
@@ -52,6 +43,10 @@ namespace csharp
                         }
                     }
                 }
+                else
+                {
+                    item.DecreaseNormalItemQuality();
+                }
 
                 if (!item.IsSulfuras())
                 {
@@ -64,13 +59,7 @@ namespace csharp
                     {
                         if (!item.IsBackstagePass())
                         {
-                            if (item.Quality > 0)
-                            {
-                                if (!item.IsSulfuras())
-                                {
-                                    item.Quality--;
-                                }
-                            }
+                            item.DecreaseNormalItemQuality();
                         }
                         else
                         {
