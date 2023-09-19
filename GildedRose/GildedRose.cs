@@ -17,9 +17,9 @@ namespace csharp
                 var item = Items[i];
                 
                     
-                if (item.IsAgedBrie() || item.IsBackstagePass())
+                if (item.IsAgedBrie())
                 {
-                    if (item.IsQualityLessThan50(item))
+                    if (item.IsQualityLessThan50())
                     {
                         item.Quality++;
 
@@ -27,7 +27,7 @@ namespace csharp
                         {
                             if (item.SellIn < 11)
                             {
-                                if (item.IsQualityLessThan50(item))
+                                if (item.IsQualityLessThan50())
                                 {
                                     item.Quality++;
                                 }
@@ -35,13 +35,17 @@ namespace csharp
 
                             if (item.SellIn < 6)
                             {
-                                if (item.IsQualityLessThan50(item))
+                                if (item.IsQualityLessThan50())
                                 {
                                     item.Quality++;
                                 }
                             }
                         }
                     }
+                }
+                else if (item.IsBackstagePass())
+                {
+                    item.ProcessBackstagePass();
                 }
                 else
                 {
@@ -68,7 +72,7 @@ namespace csharp
                     }
                     else
                     {
-                        if (item.IsQualityLessThan50(item))
+                        if (item.IsQualityLessThan50())
                         {
                             item.Quality++;
                         }

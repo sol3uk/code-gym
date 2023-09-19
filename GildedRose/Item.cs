@@ -11,9 +11,9 @@
             return Name + ", " + SellIn + ", " + Quality;
         }
 
-        internal bool IsQualityLessThan50(Item item)
+        internal bool IsQualityLessThan50()
         {
-            return item.Quality < 50;
+            return Quality < 50;
         }
 
         internal bool IsSulfuras()
@@ -24,6 +24,33 @@
         internal bool IsBackstagePass()
         {
             return Name == "Backstage passes to a TAFKAL80ETC concert";
+        }
+
+        internal void ProcessBackstagePass()
+        {
+            if (IsQualityLessThan50())
+            {
+                Quality++;
+
+                if (IsBackstagePass())
+                {
+                    if (SellIn < 11)
+                    {
+                        if (IsQualityLessThan50())
+                        {
+                            Quality++;
+                        }
+                    }
+
+                    if (SellIn < 6)
+                    {
+                        if (IsQualityLessThan50())
+                        {
+                            Quality++;
+                        }
+                    }
+                }
+            }
         }
 
         internal bool IsAgedBrie()
