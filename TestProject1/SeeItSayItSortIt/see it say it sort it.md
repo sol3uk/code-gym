@@ -1,0 +1,4 @@
+- Iterate over the list of elements to find the largest element.
+- Add the largest element to a new list.
+- Repeat until the original list contains no elements
+- Return the new (sorted) list
